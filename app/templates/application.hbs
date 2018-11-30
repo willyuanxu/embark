@@ -1,12 +1,12 @@
-{{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+{{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed position="sticky-top" onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
 	
 		{{navbar.toggle}}
-		{{#link-to "index" class="navbar-brand"}}TripPlanner{{/link-to}}
+		{{#link-to "index" class="navbar-brand"}}Embark{{/link-to}}
 	
 	{{#navbar.content}}
 		{{#navbar.nav as |nav|}}
 			{{#nav.item}}{{#nav.link-to "index"}}Home{{/nav.link-to}}{{/nav.item}}
-			{{#nav.item}}{{#nav.link-to "index"}}Navbars{{/nav.link-to}}{{/nav.item}}
+			{{#nav.item}}{{#nav.link-to "explore"}}Explore{{/nav.link-to}}{{/nav.item}}
 			{{#nav.dropdown as |dd|}}
 				{{#dd.toggle}}Dropdown <span class="caret"></span>{{/dd.toggle}}
 				{{#dd.menu as |ddm|}}
@@ -17,5 +17,6 @@
 		{{/navbar.nav}}
 		{{/navbar.content}}
 	{{/bs-navbar}}
+
 
 {{outlet}}

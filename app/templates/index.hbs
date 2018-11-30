@@ -1,0 +1,28 @@
+<div class="carousel">
+	{{#bs-carousel as |car|}}
+             {{#car.slide}}
+            
+             <img alt="First slide" src="assets/images/1.jpg" class="index-image-display">
+             
+   
+             {{/car.slide}}
+             {{#car.slide}}
+             
+             <img alt="Second slide" src="assets/images/2.jpg" class="index-image-display">
+            
+             {{/car.slide}}
+             {{#car.slide}}
+			 
+             <img alt="Third slide" src="assets/images/3.jpg" class="index-image-display">
+             
+             {{/car.slide}}
+             {{#car.slide}}
+             
+             <img alt="Fourth slide" src="assets/images/4.jpg" class="index-image-display">
+             
+             {{/car.slide}}
+    {{/bs-carousel}}
+	
+</div>
+
+{{outlet}}
