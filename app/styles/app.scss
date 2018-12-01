@@ -1,6 +1,12 @@
 
 @import "ember-bootstrap/bootstrap";
 
+html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+
 .carousel {
 	height: 100%;
 	margin: 0;
@@ -18,9 +24,28 @@
 
 }
 
-.map-container {
+#map-container {
 	height: 100%; 
 	width: 100%;
 	position: absolute;
 	background: #CCC;
 }
+
+.plan-card {
+	margin: 10px;
+	max-width: 50%;
+	position: absolute;
+}
+
+.info-card{ 
+	margin: 10px;
+	max-width: 50%;
+	float:right;
+}
+
+.hidden{
+	display: none;
+}
+
+
+

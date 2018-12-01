@@ -1,4 +1,5 @@
-{{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed position="sticky-top" onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+
+	{{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed position="sticky-top" onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
 	
 		{{navbar.toggle}}
 		{{#link-to "index" class="navbar-brand"}}Embark{{/link-to}}
@@ -19,4 +20,9 @@
 	{{/bs-navbar}}
 
 
-{{outlet}}
+
+<div class="content-under-nav">
+	{{outlet}}
+</div>
+
+
