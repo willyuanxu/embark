@@ -31,20 +31,39 @@ html, body {
 	background: #CCC;
 }
 
-.plan-card {
+.info-card {
 	margin: 10px;
 	max-width: 50%;
 	position: absolute;
 }
 
-.info-card{ 
+.plan-card{ 
 	margin: 10px;
 	max-width: 50%;
 	float:right;
 }
 
-.hidden{
-	display: none;
+
+.cp-Panel {
+  border: 1px solid #ddd;
+}
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+
+.scroll {
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 

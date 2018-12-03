@@ -9,6 +9,7 @@ export default Component.extend({
 		this._super(...arguments);
 		this.createMap();
 		this.service = new google.maps.places.PlacesService(this.map);
+		
 	},
 
 	createMap(){
@@ -33,8 +34,6 @@ export default Component.extend({
 		this.setUpAutocomplete();
 	},
 
-
-
 	setUpAutocomplete(){
 		
 		var input = this.element.querySelector('#input-search');
@@ -58,6 +57,7 @@ export default Component.extend({
 			places.forEach((place) => {
 				if (place['types'][0] != "country" && place['types'][0] == "locality"){
 					this.fillCityDetails(place.name);
+					
 				} else {
 					this.getTopCities(place.name);
 				}
@@ -69,11 +69,10 @@ export default Component.extend({
 			    }
 			});
 			this.map.fitBounds(bounds);
-			
+
 
 		});
 	},
-
 
 	clearOutMarkers(){
 		this.markers.forEach(function(marker) {
@@ -189,8 +188,7 @@ export default Component.extend({
 						for (var i = 0; i < Math.min(geonames.length, 10); i++){
 							var city = geonames[i]['toponymName'];
 							var myLatlng = new google.maps.LatLng(geonames[i]['lat'],geonames[i]['lng']);
-							this.createPlaceMarker(city, myLatlng);
-							
+							this.createPlaceMarker(city, myLatlng);		
 						}
 
 					} else {
@@ -206,18 +204,21 @@ export default Component.extend({
 	fillCityDetails(loc){
 		this.service.textSearch({query: loc + ' points of interest'}, (data, status) => {
 			if (status == 'OK'){
+				
 				var bounds = new google.maps.LatLngBounds();
 				data.forEach((place) => {
 					this.createPOIMarkers(place);
+					this.addCity(place.name);
+				});
+				this.updateInfoCells().then((infoCells) => {
+  					this.set('infoCells', infoCells);
+  					this.destroyInfoCells();
 				});
 			} else {
 				console.log("error: " + status);
 			}
 		});
-	}
-	
-
-	
+	},	
 
 	
 });
