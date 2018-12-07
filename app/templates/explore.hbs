@@ -1,6 +1,4 @@
 
-<MapView  @addCity={{action "addCity"}} @updateInfoCells={{action "updateInfoCells"}}  @destroyInfoCells={{action "destroyInfoCells"}}/>
-
-
+<MapView @getCurrPOI={{action "getCurrPOI"}} @updateCurrPOI={{action "updateCurrPOI"}} @destroyCurrPOI={{action "destroyCurrPOI"}} @addCurrCity={{action "addCurrCity"}} @getCurrCities={{action "getCurrCities"}} @destroyCurrCities={{action "destroyCurrCities"}} @addToPlan={{action "addToPlan"}} @removeFromPlan={{action "removeFromPlan"}} @getPlan={{action "getPlan"}} @savePlan={{action "savePlan"}}/>
 
 {{outlet}}

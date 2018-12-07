@@ -1,28 +1,40 @@
-<div class="carousel">
-	{{#bs-carousel as |car|}}
-             {{#car.slide}}
-            
-             <img alt="First slide" src="assets/images/1.jpg" class="index-image-display">
-             
-   
-             {{/car.slide}}
-             {{#car.slide}}
-             
-             <img alt="Second slide" src="assets/images/2.jpg" class="index-image-display">
-            
-             {{/car.slide}}
-             {{#car.slide}}
-			 
-             <img alt="Third slide" src="assets/images/3.jpg" class="index-image-display">
-             
-             {{/car.slide}}
-             {{#car.slide}}
-             
-             <img alt="Fourth slide" src="assets/images/4.jpg" class="index-image-display">
-             
-             {{/car.slide}}
-    {{/bs-carousel}}
-	
+
+<div class="index-page">
+	<div class="card index-text">
+		<p>
+			"To see the world, things dangerous to come to, to see behind walls, to draw closer, to find each other, and to feel. That is the purpose of life." - Walter Mitty
+		</p>
+
+		<button class="btn btn-secondary index-text-btn" onclick={{action "toExplorePage"}}>Embark</button>
+
+	</div>
+	<div class="carousel">
+		{{#bs-carousel as |car|}}
+	             {{#car.slide}}
+	            
+	             <img alt="First slide" src="assets/images/1.jpg" class="index-image-display">
+	             
+	   
+	             {{/car.slide}}
+	             {{#car.slide}}
+	             
+	             <img alt="Second slide" src="assets/images/2.jpg" class="index-image-display">
+	            
+	             {{/car.slide}}
+	             {{#car.slide}}
+				 
+	             <img alt="Third slide" src="assets/images/3.jpg" class="index-image-display">
+	             
+	             {{/car.slide}}
+	             {{#car.slide}}
+	             
+	             <img alt="Fourth slide" src="assets/images/4.jpg" class="index-image-display">
+	             
+	             {{/car.slide}}
+	    {{/bs-carousel}}
+	</div>
 </div>
+
+
 
 {{outlet}}

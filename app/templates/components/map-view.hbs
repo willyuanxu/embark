@@ -1,15 +1,35 @@
 <div id="map-container"></div>
 
 <div class="card info-card">
-	<div class="card-header">
+	<div class="card-header bg-light">
 		<input type="text" class="form-control bg-light" id="input-search" placeholder="Search Anywhere">
+
 	</div>
-	
-	{{#if infoCells}}
+
+	{{#if currCities}}
 	<div class="scroll" id="info-list">
 		<ul class="list-group list-group-flush">
-			{{#each infoCells as |cell|}}
-				<li class="list-group-item">{{cell.name}}</li>
+			{{#each currCities as |cell|}}
+				<li class="list-group-item info-display" onclick={{action "cityClicked" cell}}>{{cell}}{{fa-icon "location-arrow" pull="right"}}</li>
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+
+	{{#if currPOI}}
+	{{#if currCountry}}
+	<div>
+		<button class="btn btn-info explore-country" onclick={{action "exploreCountryBtnCLicked" currCountry}}>Explore other places in {{currCountry}}</button>
+	</div>
+			
+	{{/if}}
+	<div class="scroll" id="info-list">
+
+		<ul class="list-group list-group-flush">
+			
+			{{#each currPOI as |cell|}}
+				<li class="list-group-item info-display">{{cell}}{{fa-icon "plus" pull="right" class="select" click=(action "addIconClicked" currCity cell)}}
+				</li>
 			{{/each}}
 		</ul>
 	</div>
@@ -17,40 +37,34 @@
 
 </div>
 
+{{#if currPlan}}
 <div class="card plan-card">
-	<div class="card-header" id="description">
-		My Plan
+	<div class="card-header bg-light" id="description">
+		My Plan <button class="btn btn-success save-plan-btn" onclick={{action "savePlan"}}>Save Plan</button>
 	</div>
-	<div class="card-body" id="plan-list">
-		{{#cp-panels accordion=true as |panels|}}
-		  {{#panels.panel as |panel|}}
+	<!-- <div class="card-body" id="plan-list"> -->
+		{{#cp-panels name='plan-panel' class="scroll" as |panels|}}
+		{{#each currPlan as |city|}}
+		  {{#panels.panel name=city.name as |panel|}}
 		    {{#panel.toggle}}
-		      <p>Panel A</p>
+		      {{city.name}}
 		    {{/panel.toggle}}
 		    {{#panel.body}}
 		      <div>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
+		      	<ul class="list-group list-group-flush">
+		        {{#each city.attractions as |attraction|}}
+					<li class="list-group-item plan-display">{{attraction}}{{fa-icon "close" class="remove-select" pull="right" click=(action "removeIconClicked" city.name attraction)}}</li>
+		        {{/each}}
+		        </ul>
 		      </div>
 		    {{/panel.body}}
 		  {{/panels.panel}}
+		  {{/each}}
 
-		  {{#panels.panel as |panel|}}
-		    {{#panel.toggle}}
-		      <p>Panel B</p>
-		    {{/panel.toggle}}
-		    {{#panel.body}}
-		      <div>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
-		      </div>
-		    {{/panel.body}}
-
-		  {{/panels.panel}}
 		{{/cp-panels}}
-	</div>
+	<!-- </div> -->
 </div>
-
+{{/if}}
 
 
 

@@ -1,0 +1,31 @@
+{{#if model}}
+	<div class="card-columns">
+		{{#each model as |plan|}}
+		<div class="card plans-card">
+			<div class="card-header">
+				<h3>{{plan.name}}</h3>
+			</div>
+			<div class="card-body">
+				{{#each plan.cities as |city|}}
+					<h5 class="card-title"> 
+						{{city.name}}
+					</h5>
+					{{#each city.attractions as |attraction|}}
+					<p class="card-text">
+						{{attraction}}
+					</p>
+					{{/each}}
+				{{/each}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+{{else}}
+	<div class="no-plan">
+		<h3>No travel plans yet. </h3>
+		<button class="btn btn-success" onclick={{action "createPlan"}}>Create One Now</button>
+	</div>
+{{/if}}
+
+{{outlet}}
