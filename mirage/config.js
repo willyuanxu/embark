@@ -21,6 +21,7 @@ export default function() {
     // this.del('/city/:sight');
 	this.get('/plans');
 	this.post('/plans');
+	this.patch('/plans/:id');
 	this.del('/plans/:id');
 
 	this.get('/cities');

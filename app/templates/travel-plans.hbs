@@ -3,7 +3,16 @@
 		{{#each model as |plan|}}
 		<div class="card plans-card">
 			<div class="card-header">
-				<h3>{{plan.name}}</h3>
+				{{#if editPlan}}
+					{{input type="text" id="name" value=name}}
+					
+					<button class="btn btn-success plan-page-btn" onclick={{action "editName" plan name}}>Confirm</button>
+				{{else}}
+					<h3>{{plan.name}}</h3>
+					<button class="btn btn-primary plan-page-btn" onclick={{action "showEdit"}}>Edit Name</button>
+				{{/if}}
+				
+				<button class="btn btn-secondary plan-page-btn" onclick={{action "deletePlan" plan}}>Delete Plan</button>
 			</div>
 			<div class="card-body">
 				{{#each plan.cities as |city|}}
