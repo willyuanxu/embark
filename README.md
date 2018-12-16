@@ -1,9 +1,10 @@
-# itp404-final-project
+# Embark
 
 This project plans to streamline the travel planning process and make travel planning fun. 
 The primary audience of this website is anyone who wishes to plan out an itinerary and places to visit. 
 I plan to center the project around google map API to allow a user to query places they wish to visit and view popular tourist attractions of a country or city. The user is then able to add these attractions to his/her travel itinerary.
-I plan to incorporate addons such as ember-drag-drop and ember-burger-menu to enhance the UIUX of the web app. 
+
+deployed version: http://embark.surge.sh/
 
 ## Prerequisites
 
