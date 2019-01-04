@@ -65,10 +65,15 @@ export default Component.extend({
 			var bounds = new google.maps.LatLngBounds();
 			// place is a specific place
 			places.forEach((place) => {
+				console.log(place);
 				if (this.isRegion(place['types'][0]) ){
+					var address = place.formatted_address.split(', ');
+					var countryName = address[address.length-1];
+					this.set('currCountry', countryName); 
 					this.fillCityDetails(place.name);
 					
 				} else {
+					
 					this.getTopCities(place.name);
 				}
 				if (place.geometry.viewport) {
@@ -243,17 +248,12 @@ export default Component.extend({
 	fillCityDetails(loc){
 		this.clearOutMarkers();
 		this.set('currCity', loc);
-		this.service.textSearch({query: loc + ' ' + this.get('currCountry')}, (data, status) => {
-			console.log(data);
-			if (data.length != 0){
-				var address = data['0']['formatted_address'].split(', ');
-				var countryName = address[address.length-1];
-				this.set('currCountry', countryName); 
-			}
-			
-		});
-
-		this.service.textSearch({query: loc + ' ' + this.get('currCountry') + ' points of interest'}, (data, status) => {
+		
+		
+		var currCountry = this.get('currCountry');
+		console.log(currCountry);
+		currCountry = currCountry ? ' ' + currCountry + ' ' : '';
+		this.service.textSearch({query: loc + currCountry +' points of interest'}, (data, status) => {
 			if (status == 'OK'){
 				this.resetInfo();
 				var bounds = new google.maps.LatLngBounds();
