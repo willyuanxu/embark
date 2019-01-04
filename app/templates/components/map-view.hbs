@@ -1,8 +1,8 @@
 <div id="map-container"></div>
 
 <div class="card info-card">
-	<div class="card-header bg-light">
-		<input type="text" class="form-control bg-light" id="input-search" placeholder="Search Anywhere">
+	<div class="card-header ">
+		<input type="text" class="form-control input-field bg-dark" id="input-search" placeholder="Search Anywhere">
 
 	</div>
 
@@ -17,12 +17,12 @@
 	{{/if}}
 
 	{{#if currPOI}}
-	{{#if currCountry}}
-	<div>
-		<button class="btn btn-info explore-country" onclick={{action "exploreCountryBtnCLicked" currCountry}}>Explore other places in {{currCountry}}</button>
-	</div>
-			
-	{{/if}}
+		{{#if currCountry}}
+		<div>
+			<button class="btn bg-dark explore-country" onclick={{action "exploreCountryBtnCLicked" currCountry}}>Explore other places in {{currCountry}}</button>
+		</div>
+				
+		{{/if}}
 	<div class="scroll" id="info-list">
 
 		<ul class="list-group list-group-flush">
@@ -39,8 +39,8 @@
 
 {{#if currPlan}}
 <div class="card plan-card">
-	<div class="card-header bg-light" id="description">
-		My Plan <button class="btn btn-success save-plan-btn" onclick={{action "savePlan"}}>Save Plan</button>
+	<div class="card-header" id="description">
+		<button class="btn bg-dark save-plan-btn" onclick={{action "savePlan"}}>Save Plan</button>
 	</div>
 	<!-- <div class="card-body" id="plan-list"> -->
 		{{#cp-panels name='plan-panel' class="scroll" as |panels|}}

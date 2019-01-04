@@ -34,32 +34,46 @@ html, body {
 	margin: 1%;
 	max-width: 50%;
 	max-height: 96%;
+	color: white;
+	background-color: dimgrey;
 	position: absolute;
+	opacity: .95;
+}
+
+.input-field {
+	
+	color: gainsboro;
 }
 
 .plan-card{ 
 	margin: 1%;
 	max-width: 50%;
 	max-height: 96%;
+	background-color: dimgrey;
 	float:right;
+	opacity: .95;
 }
 
 
 .cp-Panel {
-  border: 1px solid #ddd;
+  border: 1px solid black;
+  background-color: dimgrey;
 }
+
+
 .cp-Panel-toggle {
   display: block;
   padding: 10px;
-  color: black;
-  background-color: whitesmoke;
+  color: lightgrey;
+  background-color: #343a40;
 
 }
 .cp-Panel-toggle:link {
   text-decoration: none;
 }
 .cp-Panel-toggle:hover {
-  background-color: #D3D3D3;
+  background-color: grey;
+  color: white;
 }
 .cp-Panel-body-inner {
   /*padding: 1em;*/
@@ -72,11 +86,12 @@ html, body {
 
 .info-display{
 	font-size: 11px;
+	background-color: dimgrey;
 	
 }
 
 .info-display:hover {
-	background-color: whitesmoke ;
+	background-color: grey ;
 	
 }
 
@@ -84,6 +99,7 @@ html, body {
 	font-size: 15px;
 	transition: transform .2s;
 	text-align: center;
+	color: lightgrey;
 	min-width: 100%;
 }
 
@@ -95,6 +111,8 @@ html, body {
 
 .plan-display{
 	font-size: 11px;
+	background-color: dimgrey;
+	color: white;
 }
 
 .select{
@@ -123,6 +141,7 @@ html, body {
 
 .save-plan-btn{
 	float:right;
+	color: lightgrey;
 	font-size: 12px;
 	margin-left: 15px;
 }
