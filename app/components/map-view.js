@@ -9,6 +9,7 @@ export default Component.extend({
 	markers: [],
 	service: null,
 	currInfoWindow: null, // keep track of which info window is open 
+	
 
 	
 	didInsertElement(){
@@ -194,7 +195,7 @@ export default Component.extend({
 
 	getTopCities(country){
 		this.clearOutMarkers();
-		this.set('currCountry', null);
+		this.set('currCountry', country);
 		var geocoder = new google.maps.Geocoder();
 		// geocode the country to show popular cities 
 		geocoder.geocode({'address': country}, (results, status) => {
@@ -218,7 +219,7 @@ export default Component.extend({
 						var infowindow = new google.maps.InfoWindow({
 							content: ''
 					});
-						for (var i = 0; i < Math.min(geonames.length, 10); i++){
+						for (var i = 0; i < Math.min(geonames.length, 15); i++){
 							this.resetInfo();
 							var city = geonames[i]['toponymName'];
 							var myLatlng = new google.maps.LatLng(geonames[i]['lat'],geonames[i]['lng']);
@@ -242,7 +243,7 @@ export default Component.extend({
 	fillCityDetails(loc){
 		this.clearOutMarkers();
 		this.set('currCity', loc);
-		this.service.textSearch({query: loc}, (data, status) => {
+		this.service.textSearch({query: loc + ' ' + this.get('currCountry')}, (data, status) => {
 			console.log(data);
 			if (data.length != 0){
 				var address = data['0']['formatted_address'].split(', ');
@@ -252,7 +253,7 @@ export default Component.extend({
 			
 		});
 
-		this.service.textSearch({query: loc + ' points of interest'}, (data, status) => {
+		this.service.textSearch({query: loc + ' ' + this.get('currCountry') + ' points of interest'}, (data, status) => {
 			if (status == 'OK'){
 				this.resetInfo();
 				var bounds = new google.maps.LatLngBounds();
